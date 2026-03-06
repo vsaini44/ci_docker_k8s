@@ -148,7 +148,7 @@ jobs:
       - name: Configure kubeconfig
         run: |
           echo "${{ secrets.KUBECONFIG_DATA }}" | base64 -d > kubeconfig
-          export "KUBECONFIG=$PWD/kubeconfig" >> $GITHUB_ENV
+          echo "KUBECONFIG=$PWD/kubeconfig" >> $GITHUB_ENV
 
       - name: Verify Pods
         run: |
