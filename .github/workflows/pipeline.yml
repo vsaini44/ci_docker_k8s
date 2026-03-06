@@ -16,28 +16,28 @@ jobs:
 # 1️⃣ UNIT TEST JOB
 #################################################
 
-tests:
-  name: Run Unit Tests
-  runs-on: ubuntu-latest
+  tests:
+    name: Run Unit Tests
+    runs-on: ubuntu-latest
 
-  steps:
+    steps:
 
-    - name: Checkout Repository
-      uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-    - name: Setup Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.10'
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
 
-    - name: Install Dependencies
-      run: |
-        pip install -r app/requirements.txt
-        pip install pytest
+      - name: Install Dependencies
+        run: |
+          pip install -r app/requirements.txt
+          pip install pytest
 
-    - name: Run Tests
-      run: |
-        PYTHONPATH=. python -m pytest
+      - name: Run Tests
+        run: |
+          PYTHONPATH=. python -m pytest
 #################################################
 # 2️⃣ DOCKER BUILD + PUSH
 #################################################
